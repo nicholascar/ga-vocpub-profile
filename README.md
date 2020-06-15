@@ -7,7 +7,7 @@ This profile is formulated according to the [Profiles Vocabulary](https://www.w3
 
 This profile is hosted online in [Linked Data](https://www.w3.org/standards/semanticweb/data) form at an Australian-government issued persistent web address:
 
-* <https://linked.data.gov.au/deg/ga-skos>
+* <https://linked.data.gov.au/def/ga-skos>
 
 
 ## License  
