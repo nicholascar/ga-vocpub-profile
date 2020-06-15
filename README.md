@@ -29,3 +29,7 @@ To cite this profile, please use the following (formulated in [BibTex](http://ww
   url = {https://linked.data.gov.au/def/ga-skos}
 }
 ``` 
+
+## Contact
+[Geoscience Australia](https://www.ga.gov.au)'s Data Manager:  
+<dataman@ga.gov.au>
