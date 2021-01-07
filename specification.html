@@ -123,7 +123,7 @@
     <section id="metadata">
       <dl>
         <dt>URI</dt>
-        <dd><code><a href="https://linked.data.gov.au/def/ga-skos/specification.html">https://linked.data.gov.au/def/ga-skos/specification.html</a></code></dd>
+        <dd><code><a href="https://linked.data.gov.au/def/ga-vocpub/specification.html">https://linked.data.gov.au/def/ga-vocpub/specification.html</a></code></dd>
         <dt>Title</dt>
         <dd>GA VocPub Profile - Specification Document</dd>
         <dt>Definition</dt>
@@ -139,25 +139,25 @@
         <dt>Further metadata</dt>
         <dd>This specification is part of the <em>GA VocPub Profile</em>. See that profile's main document for License &amp; Rights information and other metadata not given here.</dd>
         <dt>Profile URI</dt>
-        <dd><code><a href="https://linked.data.gov.au/def/ga-skos">https://linked.data.gov.au/def/ga-skos</a></code></dd>
+        <dd><code><a href="https://linked.data.gov.au/def/ga-vocpub">https://linked.data.gov.au/def/ga-vocpub</a></code></dd>
       </dl>
     </section>
     <section id="abstract">
       <h2>Abstract</h2>
       <p>
-        This is the specification document of <a href="https://www.ga.gov.au">Geoscience Australia</a>'s <a href="https://www.w3.org/TR/dx-prof/#definitions">profile</a> of <a href="https://www.w3.org/TR/skos-reference/">SKOS</a>. It defines the requirements that data must satisfy to be considered conformant with this profile.
+        This is the specification document of <a href="https://www.ga.gov.au">Geoscience Australia</a>'s <a href="https://www.w3.org/TR/dx-prof/#definitions">profile</a> of the <a href="https://w3id.org/profile/vocpub">Vocabulary Publication Profile</a>. It defines the additional requirements on top of that profile and vocabularies must conform to both the vocPub Profile's requirements as well as these to be considered fit for purrpose at GA.
       </p>
       <p>
-        This specification is not to be used for testing conformance of RDF resoruces to this profile. That role belongs to the <em>validation</em> resource within this profile:
+        This specification is not to be used for the testing of conformance of RDF resources to this profile. That role belongs to the <em>validation</em> resource within this profile:
       </p>
       <ul>
-        <li><a href="https://linked.data.gov.au/def/ga-skos/validation.ttl">https://linked.data.gov.au/def/ga-skos/validation.ttl</a></li>
+        <li><a href="https://linked.data.gov.au/def/ga-vocpub/validation.ttl">https://linked.data.gov.au/def/ga-vocpub/validation.ttl</a></li>
       </ul>
       <p>
         For the list of all resources within this profile, see the profile definition:
       </p>
       <ul>
-        <li><a href="https://linked.data.gov.au/def/ga-skos">https://linked.data.gov.au/def/ga-skos</a></li>
+        <li><a href="https://linked.data.gov.au/def/ga-vocpub">https://linked.data.gov.au/def/ga-vocpub</a></li>
       </ul>
     </section>
     <section id="namespaces">
@@ -178,26 +178,26 @@
         <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
         <dt>rdfs</dt>
         <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
+        <dt>vocpub</dt>
+        <dd><code>https://w3id.org/profile/vocpub/</code></dd>        
       </dl>
     </section>
     <section id="intro">
       <h2>1. Introduction</h2>
       <p>
-        <a href="https://www.ga.gov.au">Geoscience Australia (GA)</a> defines a <em>vocabulary</em> as a controlled collection of defined terms that may or may not contain relationships between terms and relationships to terms in other vocabularies.
+        <a href="https://www.ga.gov.au">Geoscience Australia (GA)</a> uses the Vocabulary Publication Profile (VOCPUB)<sup><a href="#vocpub">ref</a></sup> which defines a series of contraints on top of the Simple Knowledge Organization System Reference (SKOS)<sup><a href="#skos">ref</a></sup> data model for the publication of <em>vocabularies</em>.
       </p>
       <p>
-        GA uses the Simple Knowledge Organization System Reference (SKOS)<sup><a href="#skos">ref</a></sup> to represent vocabularies in a form that can be read by humans and consumed by machines; that is, in <em>Semantic Web</em> form<sup><a href="#semantic-web">ref</a></sup>.
+        GA then builds on VOCPUB's elements by adding a few more constraints, for example that there be at least an English language definition for each major SKOS element, instead of just at least one definition.
       </p>
       <p>
-        This document is a <em>profile</em> of SKOS and by profile, the definition of from the <em>Profiles Vocabulary</em><sup><a href="#prof">ref</a></sup> is used. A <em>profile</em> is:
-      </p>
-      <p class="quote">A specification that constrains, extends, combines, or provides guidance or explanation about the usage of other specifications.
+        This document specifies a formal <em>profile</em> of VOCPUB which is a formal <em>profile</em> of SKOS. <em>profile</em> and related terms are defined by the <em>Profiles Vocabulary</em><sup><a href="#prof">ref</a></sup> which also supplies a specific test for profiles: something that conforms to a profile <em>must</em> conform to the specification that the profile is a profile of. This means that anything which conforms to this profile must also conform to VOCPUB and to SKOS.
       </p>
       <p>
-        Here, the <em>other specification</em> being profiled is SKOS.
+        This profile does not contain VOCPUB or SKOS data rules: people wishing to test conformance of their data to this profile and VOCPUB and SKOS must bring in their requirements separately. This may be done using hierarchical validation tooling such as the Cheka algorithm (CHEKA)<sup><a href="#cheka">ref</a></sup>.
       </p>
       <p>
-        In the next section, this document describes how SKOS's elements must be presented to make a vocabulary that conforms to this profile.
+        In the next section, this document describes this profile's requirements, above and beyond those of VOCPUB.
       </p>
     </section>
     <section id="elements-reqs">
@@ -205,145 +205,50 @@
       <section id="vocabulary">
         <h3>2.1 Vocabulary</h3>
         <p>
-          GA identifies Semantic Web objects with URI-based persistent identifiers. For this reason:
+          Due to Austalian government use:
         </p>
         <p class="req">
-          2.1.1 Each vocabulary <em>MUST</em> be identified by a URI
-        </p>
-        <p>
-          As per the <em>SKOS Primer</em><sup><a href="#skos-primer">ref</a></sup>, a document guiding the use of SKOS:
-        </p>
-        <p class="quote">concepts usually come in carefully compiled vocabularies, such as thesauri or classification schemes. SKOS offers the means of representing such KOSs using the <code>skos:ConceptScheme</code> class.
-        </p>
-        <p>
-          For this reason, this profile requires that:
-        </p>
-        <p class="req">
-          2.1.2 Each vocabulary <em>MUST</em> be presented as a single <code>skos:ConceptScheme</code> object
-        </p>
-        <p>
-          For ease of data management:
-        </p>
-        <p class="req">
-          2.1.3 Each vocabulary <em>MUST</em> be presented in a single file which does not contain information other than that which is directly part of the vocabulary and the file is considered the point-of-truth
-        </p>
-        <p>
-          To ensure vocabularies can be catalogued effectively and governed:
-        </p>
-        <p class="req">
-          2.1.4 Each vocabulary <em>MUST</em> have one and only one title and one and only one definition values indicated using the <code>skos:prefLabel</code> and <code>skos:definition</code> properties respectively that must be literal text values, in English
-        </p>
-        <p class="req">
-          2.1.5 Each vocabulary <em>MUST</em> have one and only one created date and one and only one modified date indicated using the <code>dcterms:created</code> and <code>dcterms:modified</code> properties respectively that must be either an xsd:date, xsd:dateTime or xsd:dateTimeStamp literal value
-        </p>
-        <p class="req">
-          2.1.6 Each vocabulary <em>MUST</em> have at least one creator and at least one publisher, indicated using <code>dcterms:creator</code> and <code>dcterms:publisher</code> properties respectively that must be URI values indicating instances of <code>sdo:Person</code>, <code>sdo:Organization</code> or <code>sdo:GovernmentOrganization</code>
-        </p>
-        <p>
-          To be able to link SKOS vocabularies to their non-vocabulary source information:
-        </p>
-        <p class="req">
-          2.1.7 Each vocabulary <em>MUST</em> indicate its source, or that it has no source, by use of either the <code>prov:wasDerivedFrom</code>, <code>dcterms:source</code>, <code>dcterms:provenance</code> properties
-        </p>
-        <p>
-          If a vocabulary is based on another Semantic Web resource, such as an ontology or another vocabulary, <code>prov:wasDerivedFrom</code> should be used to indicate that resource's URI. If the vocabulary is based on a resource that is identified by a URI but which is not a Semantic Web resource, <code>dcterms:source</code> should be used to indicate the resource's URI. If the vocabulary is based on something which cannot be identified by URI, a statement about the thing should be given in a literal value indicated with the <code>dcterms:provenance</code> property. If the vocabulary is not based on any other resource or source of information, i.e. this vocabulary is its only expression, this should be communicated by use of the <code>dcterms:provenance</code> indicating the phrase "This vocabulary is expressed for the first time here".
-        </p>
-        <p>
-          To ensure that all the terms within a vocabulary are linked to the main vocabulary object, the <code>skos:ConceptScheme</code>:
-        </p>
-        <p class="req">
-          2.1.8 All <code>skos:Concept</code> instances within a <code>skos:ConceptScheme</code> <em>MUST</em> link be ordered in a single, term hierarchy using <code>skos:broader</code> and/or <code>skos:narrower</code> properties and which contains no cycles.
-        </p>
-        <p>
-          To unambiguously link the term hierarchy within a vocabulary to the vocabulary itself:
-        </p>
-        <p class="req">
-          2.1.9 Each vocabulary's <code>skos:ConceptScheme</code> <em>MUST</em> link to at least one <code>skos:Concept</code> within the vocabulary as with the property <code>skos:hasTopConcept</code>
+          2.1.1 Each vocabulary <em>MUST</em> have a definition indicated with a <code>skos:definition</code> property that is a text literal value in English
         </p>
       </section>
       <section id="collection">
         <h3>2.2 Collection</h3>
         <p>
-          From the SKOS Primer<sup><a href="#skos-primer">ref</a></sup>:
-        </p>
-        <p class="quote">
-          SKOS makes it possible to define meaningful groupings or "collections" of concepts
-        </p>
-        <p>
-          To ensure that <code>skos:Collection</code> instances are identifiable and their meaning isn't obscure or lost:
+          Due to Austalian government use:
         </p>
         <p class="req">
-          2.2.1 Each <code>skos:Collection</code> instance <em>MUST</em> have one and only one title and one and only one definition values indicated using the <code>skos:prefLabel</code> and <code>skos:definition</code> properties respectively that must be literal text values, in English
-        </p>
-        <p>
-          If a <code>skos:Collection</code> is derived from an existing resource:
-        </p>
-        <p class="req">
-          2.2.2 Each <code>skos:Collection</code> in a vocabulary <em>SHOULD</em> indicate its source by use of either the <code>prov:wasDerivedFrom</code>, <code>dcterms:source</code>, <code>dcterms:provenance</code> properties if the collection is derived from a source
+          2.2.1 Each <code>skos:Collection</code> <em>MUST</em> have a definition indicated with a <code>skos:definition</code> property that is a text literal value in English
         </p>
       </section>
       <section id="concept">
         <h3>2.3 Concept</h3>
         <p>
-          From the SKOS Primer<sup><a href="#skos-primer">ref</a></sup>:
-        </p>
-        <p class="quote">
-          The fundamental element of the SKOS vocabulary is the concept. Concepts are the units of thought — ideas, meanings, or (categories of) objects and events—which underlie many knowledge organization systems
-        </p>
-        <p>
-          Vocabularies conforming to this profile must present at least one <code>sckos:Concept</code> within the vocabulary file and, as per requirements in Section 2.1, at least once <code>skos:Concept</code> must be indicated as the top concept of the vocabulary.
-        </p>
-        <p>
-          To ensure that <code>skos:Concept</code> instances are identifiable and their meaning isn't obscure or lost:
+          Due to Austalian government use:
         </p>
         <p class="req">
-          2.3.1 Each <code>skos:Concept</code> instance <em>MUST</em> have one and only one title and one and only one definition values indicated using the <code>skos:prefLabel</code> and <code>skos:definition</code> properties respectively that must be literal text values, in English
-        </p>
-        <p>
-          To ensure that every <code>skos:Concept</code> is linked to the vocabulary that defines it:
-        </p>
-        <p class="req">
-          2.3.2 Each <code>skos:Concept</code> in a vocabulary <em>MUST</em> indicate the vocabulary that defines it by use of the <code>rdfs:isDefinedBy</code> property indicating a <code>skos:ConceptScheme</code> instance
-        </p>
-        <p>Note that the vocabulary that defines a <code>skos:Concept</code> does not have to be the vocabulary in the file being validated. This is to allow for <code>skos:Concept</code> instance reuse across multiple vocabularies.</p>
-        <p>
-          Since a <code>skos:Concept</code> may be used in more than one vocabulary:
-        </p>
-        <p class="req">
-          2.3.3 Each <code>skos:Concept</code> in a vocabulary <em>MUST</em> indicate that it appears within that vocabulary's hierarchy of terms by use of either or both <code>skos:inScheme</code> and <code>skos:topConceptOf</code> properties
-        </p>
-        <p>
-          If a <code>skos:Concept</code> is derived from an existing resource and that derivation is not already covered by source information for the vocabulary that it is within:
-        </p>
-        <p class="req">
-          2.3.4 Each <code>skos:Concept</code> in a vocabulary <em>MAY</em> indicate its source, if different or more finely specified than its vocabularies source, by use of either the <code>prov:wasDerivedFrom</code>, <code>dcterms:source</code>, <code>dcterms:provenance</code> properties
+          2.3.1 Each <code>skos:Concept</code> <em>MUST</em> have a definition indicated with a <code>skos:definition</code> property that is a text literal value in English
         </p>
       </section>
     </section>
     <section id="agent">
       <h3>2.4 Agent</h3>
       <p>
-        To be consistent with other Semantic Web representations of agents, vocabularies' associated agents, creator &amp; publisher must be certain typed RDF values:
+        For the systematic control of Agent references:
       </p>
       <p class="req">
-        2.4.1 Each agent associated with a vocabulary <em>MUST</em> be typed as an <code>sdo:Person</code>, <code>sdo:Organization</code> or <code>sdo:GovernmentOrganization</code>
+        2.4.1 Each agent associated with a vocabulary <em>SHOULD</em> be allocated a persistent identifier that is an IRI.
       </p>
       <p>
-        To ensure human readability and association of agents with their non-Semantic Web (real world) form:
-      </p>
-      <p class="req">
-        2.4.2 Each agent <em>MUST</em> indicate at least one name property with the <code>sdo:name</code> property that must be a text literal value
-      </p>
-      <p>
-        To ensure that agents are linked to non-Semantic Web forms of identification:
-      </p>
-      <p class="req">
-        2.4.3 Each agent <em>MUST</em> indicate either a <code>sdo:url</code> (for organizations) or a <code>sdo:email</code> (for people) property with a URL or email value
+        Note that the Agent requirements from VOCPUB may be satisfied by defining Agents in RDF within a vocabulary. The intention of this requrement is that the Agent be identified externally to a particular vocabulary and by a system established to grant URIs (IRIs) good persistence.
       </p>
     </section>
     <section id="references">
   <h2>3. References</h2>
   <dl>
+    <dt><a id="prof"></a>VOCPUB</dt>
+    <dd>
+      SURROUND Australia Pty Ltd <em>VocPub profile of SKOS</em>. 13 June 2020. Profiles Vocabulary Specification. URL: <a href="https://w3id.org/profile/vocpub">https://w3id.org/profile/vocpub</a>
+    </dd>    
     <dt><a id="prof"></a>PROV</dt>
     <dd>
       Rob Atkinson; Nicholas J. Car (eds.). <em>The Profiles Vocabulary</em>. 18 December 2019. W3C Working Group Note. URL: <a href="https://www.w3.org/TR/dx-prof/">https://www.w3.org/TR/dx-prof/</a>
@@ -352,13 +257,9 @@
     <dd>
       Alistair Miles; Sean Bechhofer (eds.). <em>SKOS Simple Knowledge Organization System Reference</em>. 18 August 2009. W3C Recommendation. URL: <a href="https://www.w3.org/TR/skos-reference/">https://www.w3.org/TR/skos-reference/</a>
     </dd>
-    <dt><a id="skos-primer"></a>SKOS Primer</dt>
+    <dt><a id="cheka"></a>CHEKA</dt>
     <dd>
-      Antoine Isaac; Ed Summers (eds.). <em>SKOS Simple Knowledge Organization System Primer</em>. 18 August 2009. W3C Note. URL: <a href="https://www.w3.org/TR/skos-primer/">https://www.w3.org/TR/skos-primer/</a>
-    </dd>
-    <dt><a id="semantic-web"></a>Semantic Web</dt>
-    <dd>
-      World Wide Web Consortium. <em>Semantic Web</em> 2015. Web Page. URL: <a href="https://www.w3.org/standards/semanticweb/">https://www.w3.org/standards/semanticweb/</a>, accessed 2020-06-14
+      Nicholas J. Car <em>Cheka: A profile hierarchy-based RDF graph validation tool written in Python</em>. 2020. Software. DOI: <a href="https://doi.org/10.5281/zenodo.3676330">https://doi.org/10.5281/zenodo.3676330</a>. Latest code: <a href="https://github.com/surroundaustralia/cheka">https://github.com/surroundaustralia/cheka</a>
     </dd>
   </dl>
 </section>
