@@ -2,7 +2,7 @@
 <html lang="en">
 <head lang="en">
   <meta charset="UTF-8">
-  <title>GA SKOS Profile - Spec</title>
+  <title>GA VocPub Profile</title>
   <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAGABoAwAAFgAAACgAAAAQAAAAIAAAAAEAGAAAAAAAAAAAABMLAAATCwAAAAAAAAAAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8/Pzc3NyYmJiVlZXj4+P////5+fn////////////////////////////Q0NDExMS3t7e5ublhYWFiYmKxsbG7u7vMzMy+vr7+/v7////////x8fHHx8fQ0NCzs7OkpKSLi4uzs7OkpKSsrKy4uLiJiYm2traqqqrGxsbBwcH4+Pju7u7CwsK+vr6+vr6ysrLExMStra2Hh4eUlJSpqanJycmvr6+rq6vLy8vQ0ND8/PzIyMiVlZWCgoJnZ2d/f39qampmZmaOjo6cnJx/f3+GhoaRkZHExMTNzc3AwMDPz8/j4+OoqKitra1lZWU5OTl9fX2xsbGVlZWRkZGrq6ugoKCWlpavr6+2tralpaXf39/////m5ubFxcWLi4sAAABgYGCVlZVtbW17e3ujo6OJiYkkJCQ8PDzHx8fs7Oz////////JycmZmZnX19cnJycfHx92dnaQkJCQkJBPT08AAAAAAABEREShoaHc3Nz////////m5ubKysr////Z2dkTExNgYGCjo6Otra1RUVF+fn7Kysrx8fHJycnc3Nz///////////////////////9ra2uGhobh4eHn5+fb29uMjIz////////9/f3+/v7///////////////////////+jo6PGxsafn5+kpKT5+fnQ0ND///////////////////////////////////////////////+4uLjBwcH///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAA//8AAP//AAD//wAAAAAAAAAA" rel="icon" type="image/x-icon" />
   <style type="text/css">
     body, html {
@@ -123,25 +123,25 @@
     <div style="background-color: rgb(163, 63, 31);"></div>
   </div>
   <div id="content" style="grid-column:2;">
-    <h1>GA SKOS Profile</h1>
+    <h1>GA VocPub Profile</h1>
     <section id="metadata">
       <dl>
         <dt>URI</dt>
-        <dd><code><a href="https://linked.data.gov.au/def/ga-skos">https://linked.data.gov.au/def/ga-skos</a></code></dd>
+        <dd><code><a href="https://linked.data.gov.au/def/ga-vocpub">https://linked.data.gov.au/def/ga-vocpub</a></code></dd>
         <dt>Title</dt>
-        <dd>GA SKOS Profile</dd>
+        <dd>GA VocPub Profile</dd>
         <dt>Definition</dt>
-        <dd>This profile of SKOS defines what ConceptScheme, Concept and Collection properties and their relative arrangements Geoscience Australia requires of its vocabularies for its business purposes</dd>
+        <dd>This profile is Geoscience Australia's profile of the <a href="https://w3id.org/profile/vocpub">Vocabulary Publications Profile</a> which, in turn, profiles the SKOS vocabulary data model. This profile adds rules for Geoscience Australia's business requirements on top of those already applied to SKOS use by the VocPub profile.</dd>
         <dt>Created</dt>
         <dd>2020-06-13</dd>
         <dt>Modified</dt>
-        <dd>2020-06-15</dd>
+        <dd>2021-01-07</dd>
         <dt>Creator</dt>
         <dd><a href="https://linked.data.gov.au/org/ga">Geoscience Australia</a></dd>
         <dt>Publisher</dt>
         <dd><a href="https://linked.data.gov.au/org/ga">Geoscience Australia</a></dd>
         <dt>Repository</dt>
-        <dd><a href="https://github.com/surroundaustralia/ga-skos-profile">https://github.com/surroundaustralia/ga-skos-profile</a></dd>
+        <dd><a href="https://github.com/surroundaustralia/ga-vocpub-profile">https://github.com/surroundaustralia/ga-vocpub-profile</a></dd>
       </dl>
       <h2>Profile Resources</h2>
       <p>This profile contains the following <code>prof:Resource</code> instances:</p>
@@ -150,7 +150,7 @@
           <td colspan="2"><h3>1. Validator in SHACL</h3></td>
         </tr>
         <tr>
-          <th>Artifact</th><td><a href="https://linked.data.gov.au/def/ga-skos/validation.ttl">https://linked.data.gov.au/def/ga-skos/validation.ttl</a></td>
+          <th>Artifact</th><td><a href="https://linked.data.gov.au/def/ga-vocpub/validation.ttl">https://linked.data.gov.au/def/ga-vocpub/validation.ttl</a></td>
         </tr>
         <tr>
           <th>Role</th><td><code><a href="http://www.w3.org/ns/dx/prof/role/validation">role:validation</a></code></td>
@@ -167,7 +167,7 @@
           <td colspan="2"><h3>2. Specification Document</h3></td>
         </tr>
         <tr>
-          <th>Artifact</th><td><a href="https://linked.data.gov.au/def/ga-skos/specification.html">https://linked.data.gov.au/def/ga-skos/specification.html</a></td>
+          <th>Artifact</th><td><a href="https://linked.data.gov.au/def/ga-vocpub/specification.html">https://linked.data.gov.au/def/ga-vocpub/specification.html</a></td>
         </tr>
         <tr>
           <th>Role</th><td><code><a href="http://www.w3.org/ns/dx/prof/role/specification">role:specification</a></code></td>
@@ -184,13 +184,13 @@
           <td colspan="2"><h3>3. Example of a valid vocabulary</h3></td>
         </tr>
         <tr>
-          <th>Artifact</th><td><a href="https://linked.data.gov.au/def/ga-skos/example/valid.ttl">https://linked.data.gov.au/def/ga-skos/example/valid.ttl</a></td>
+          <th>Artifact</th><td><a href="https://linked.data.gov.au/def/ga-vocpub/example/valid.ttl">https://linked.data.gov.au/def/ga-vocpub/example/valid.ttl</a></td>
         </tr>
         <tr>
           <th>Role</th><td><code><a href="http://www.w3.org/ns/dx/prof/role/example">role:example</a></code></td>
         </tr>
         <tr>
-          <th>Conforms</th><td><a href="https://linked.data.gov.au/def/ga-skos">https://linked.data.gov.au/def/ga-skos</a></td>
+          <th>Conforms</th><td><a href="https://linked.data.gov.au/def/ga-vocpub">https://linked.data.gov.au/def/ga-vocpub</a></td>
         </tr>
         <tr>
           <th>Format</th><td><code><a href="https://w3id.org/mediatype/text/turtle">text/turtle</a></code></td>
@@ -205,7 +205,7 @@
           <td>This example vocabulary does not satisfy the Specification's Requirement 2.1.5 (the ConceptScheme is missing a dcterms:created date)</td>
         </tr>
         <tr>
-          <th>Artifact</th><td><a href="https://linked.data.gov.au/def/ga-skos/example/invalid.1.ttl">https://linked.data.gov.au/def/ga-skos/example/invalid.1.ttl</a></td>
+          <th>Artifact</th><td><a href="https://linked.data.gov.au/def/ga-vocpub/example/invalid.1.ttl">https://linked.data.gov.au/def/ga-vocpub/example/invalid.1.ttl</a></td>
         </tr>
         <tr>
           <th>Role</th><td><code><a href="http://www.w3.org/ns/dx/prof/role/example">role:example</a></code></td>
@@ -223,7 +223,7 @@
           <td>This example vocabulary does not satisfy the Specification's Requirements 2.3.1 & 2.3.2 (one concpets has two titles, another is missing rdfs:isDefinedBy)</td>
         </tr>
         <tr>
-          <th>Artifact</th><td><a href="https://linked.data.gov.au/def/ga-skos/example/invalid.2.ttl">https://linked.data.gov.au/def/ga-skos/example/invalid.2.ttl</a></td>
+          <th>Artifact</th><td><a href="https://linked.data.gov.au/def/ga-vocpub/example/invalid.2.ttl">https://linked.data.gov.au/def/ga-vocpub/example/invalid.2.ttl</a></td>
         </tr>
         <tr>
           <th>Role</th><td><code><a href="http://www.w3.org/ns/dx/prof/role/example">role:example</a></code></td>

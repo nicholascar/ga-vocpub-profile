@@ -13,9 +13,9 @@
 #
 #   ConceptScheme
 #
-#Requirement-2.1.1 so far un-implemented in SHACL
+# Requirement-2.1.1 so far un-implemented in SHACL
 
-#Requirement-2.1.2 included below
+# Requirement-2.1.2 included below
 
 <Requirement-2.1.2+3>
     a sh:NodeShape ;
