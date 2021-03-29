@@ -123,15 +123,15 @@
     <section id="metadata">
       <dl>
         <dt>URI</dt>
-        <dd><code><a href="https://linked.data.gov.au/def/ga-vocpub/specification.html">https://linked.data.gov.au/def/ga-vocpub/specification.html</a></code></dd>
+        <dd><code><a href="https://linked.data.gov.au/def/ga-vocpub/spec">https://linked.data.gov.au/def/ga-vocpub/spec</a></code></dd>
         <dt>Title</dt>
         <dd>GA VocPub Profile - Specification Document</dd>
         <dt>Definition</dt>
-        <dd>This document specifies the GA VocPub Profile. It is to be used to inform people about the requirements that need to be met by data claiming to conform to the profile.</dd>
+        <dd>This document gives the normative rules for the GA VocPub Profile. It defines the rules, however other profile resources provide machine-readable versions of these rules for automatic data validation.</dd>
         <dt>Created</dt>
         <dd>2020-06-14</dd>
         <dt>Modified</dt>
-        <dd>2021-01-07</dd>
+        <dd>2021-03-29</dd>
         <dt>Creator</dt>
         <dd><a href="https://linked.data.gov.au/org/ga">Geoscience Australia</a></dd>
         <dt>Publisher</dt>
@@ -146,6 +146,9 @@
       <h2>Abstract</h2>
       <p>
         This is the specification document of <a href="https://www.ga.gov.au">Geoscience Australia</a>'s <a href="https://www.w3.org/TR/dx-prof/#definitions">profile</a> of the <a href="https://w3id.org/profile/vocpub">Vocabulary Publication Profile</a>. It defines the additional requirements on top of that profile and vocabularies must conform to both the vocPub Profile's requirements as well as these to be considered fit for purrpose at GA.
+      </p>
+      <p>
+        Currently, only one addition to the VocPub profile is defined here: that a vocabularu conforming to this profile must have its publisher set to GA.
       </p>
       <p>
         This specification is not to be used for the testing of conformance of RDF resources to this profile. That role belongs to the <em>validation</em> resource within this profile:
@@ -185,62 +188,68 @@
     <section id="intro">
       <h2>1. Introduction</h2>
       <p>
-        <a href="https://www.ga.gov.au">Geoscience Australia (GA)</a> uses the Vocabulary Publication Profile (VOCPUB)<sup><a href="#vocpub">ref</a></sup> which defines a series of contraints on top of the Simple Knowledge Organization System Reference (SKOS)<sup><a href="#skos">ref</a></sup> data model for the publication of <em>vocabularies</em>.
+        <a href="https://www.ga.gov.au">Geoscience Australia (GA)</a> uses the Vocabulary Publication Profile (VOCPUB)<sup><a href="#vocpub">ref</a></sup> which defines a series of contraints on top of the Simple Knowledge Organization System Reference (SKOS)<sup><a href="#skos">ref</a></sup> data model for the publication of <em>vocabularies</em> to set most of the requirements for the vocabularies they publish.
       </p>
       <p>
-        GA then builds on VOCPUB's elements by adding a few more constraints, for example that there be at least an English language definition for each major SKOS element, instead of just at least one definition.
+        GA then builds on VOCPUB's elements by adding a few more constraints for their own business purposes. This profile will change and grow as more business purposes are defined. Currently, additional rules are informed by general Australian govenrment's requirements such as that annotations must be in English. Also, GA vocabs must have GA indicated as the publisher.
       </p>
       <p>
         This document specifies a formal <em>profile</em> of VOCPUB which is a formal <em>profile</em> of SKOS. <em>profile</em> and related terms are defined by the <em>Profiles Vocabulary</em><sup><a href="#prof">ref</a></sup> which also supplies a specific test for profiles: something that conforms to a profile <em>must</em> conform to the specification that the profile is a profile of. This means that anything which conforms to this profile must also conform to VOCPUB and to SKOS.
       </p>
       <p>
-        This profile does not contain VOCPUB or SKOS data rules: people wishing to test conformance of their data to this profile and VOCPUB and SKOS must bring in their requirements separately. This may be done using hierarchical validation tooling such as the Cheka algorithm (CHEKA)<sup><a href="#cheka">ref</a></sup>.
+        This profile does not contain VOCPUB or SKOS data rules: people wishing to test conformance of their data to this profile and VOCPUB and SKOS must bring in those standards' requirements separately. This can be done automatically using a validation-by-profile tool such as the Cheka algorithm (CHEKA)<sup><a href="#cheka">ref</a></sup>.
       </p>
       <p>
         In the next section, this document describes this profile's requirements, above and beyond those of VOCPUB.
       </p>
     </section>
-    <section id="elements-reqs">
-      <h2>2. Elements &amp; Requirements</h2>
+    <section id="reqs">
+      <h2>2. Requirements</h2>
       <section id="vocabulary">
         <h3>2.1 Vocabulary</h3>
         <p>
-          Due to Austalian government use:
+          Due to Geoscience Australia business rules for publication:
         </p>
         <p class="req">
-          2.1.1 Each vocabulary <em>MUST</em> have a definition indicated with a <code>skos:definition</code> property that is a text literal value in English
+          2.1.1 Each vocabulary <em>MUST</em> have its publisher identified as Geoscience Australia
+        </p>
+        <p class="req">
+          2.1.2 Each vocabulary <em>MUST</em> indicate a Geoscience Australia person as its contact point
+        </p>                
+        <p>
+          Due to general Australian government requirements:
+        </p>
+        <p class="req">
+          2.1.3 Each vocabulary <em>MUST</em> have its main label in English
+        </p>        
+        <p class="req">
+          2.1.4 Each vocabulary <em>MUST</em> have a definition in English
         </p>
       </section>
       <section id="collection">
         <h3>2.2 Collection</h3>
         <p>
-          Due to Austalian government use:
+          Due to general Australian government requirements:
         </p>
         <p class="req">
-          2.2.1 Each <code>skos:Collection</code> <em>MUST</em> have a definition indicated with a <code>skos:definition</code> property that is a text literal value in English
+          2.2.1 Each <code>skos:Collection</code> <em>MUST</em> have its main label in English
+        </p>
+        <p class="req">
+          2.2.2 Each <code>skos:Collection</code> <em>MUST</em> have a definition in English
         </p>
       </section>
       <section id="concept">
         <h3>2.3 Concept</h3>
         <p>
-          Due to Austalian government use:
+          Due to general Australian government requirements:
         </p>
         <p class="req">
-          2.3.1 Each <code>skos:Concept</code> <em>MUST</em> have a definition indicated with a <code>skos:definition</code> property that is a text literal value in English
+          2.3.1 Each <code>skos:Concept</code> <em>MUST</em> have its main label in English
         </p>
+        <p class="req">
+          2.3.2 Each <code>skos:Concept</code> <em>MUST</em> have a definition in English
+        </p>        
       </section>
-    </section>
-    <section id="agent">
-      <h3>2.4 Agent</h3>
-      <p>
-        For the systematic control of Agent references:
-      </p>
-      <p class="req">
-        2.4.1 Each agent associated with a vocabulary <em>SHOULD</em> be allocated a persistent identifier that is an IRI.
-      </p>
-      <p>
-        Note that the Agent requirements from VOCPUB may be satisfied by defining Agents in RDF within a vocabulary. The intention of this requrement is that the Agent be identified externally to a particular vocabulary and by a system established to grant URIs (IRIs) good persistence.
-      </p>
     </section>
     <section id="references">
   <h2>3. References</h2>
@@ -262,7 +271,7 @@
       Nicholas J. Car <em>Cheka: A profile hierarchy-based RDF graph validation tool written in Python</em>. 2020. Software. DOI: <a href="https://doi.org/10.5281/zenodo.3676330">https://doi.org/10.5281/zenodo.3676330</a>. Latest code: <a href="https://github.com/surroundaustralia/cheka">https://github.com/surroundaustralia/cheka</a>
     </dd>
   </dl>
-</section>
+    </section>
   </div><!-- #content -->
   <div id="footer" style="grid-column:1/4;">
     <div id="footer-links">
